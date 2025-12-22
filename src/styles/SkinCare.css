@@ -1,0 +1,341 @@
+/* ===========================================================
+   SKIN CARE REMEDY APP — FULL PROFESSIONAL CSS
+   Matches the Perplexity-only FaceRemedies.jsx
+   Beautiful • Responsive • Dark Mode Ready
+=========================================================== */
+
+/* ----------- GLOBAL THEME ----------- */
+:root {
+  --primary: #4b8df8;
+  --primary-dark: #2a6ad4;
+
+  --accent: #e67e22;
+  --accent-dark: #d2691e;
+
+  --danger: #e74c3c;
+  --danger-dark: #c0392b;
+
+  --bg-light: #ffffff;
+  --bg-main: #f6f7fb;
+  --text-dark: #2c3e50;
+  --text-light: #555;
+
+  --card-shadow: rgba(0, 0, 0, 0.12);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-main);
+  font-family: "Inter", sans-serif;
+}
+
+/* ----------- DARK MODE ----------- */
+.dark {
+  --bg-main: #121212;
+  --bg-light: #1e1e1e;
+  --text-dark: #f5f5f5;
+  --text-light: #cccccc;
+  --card-shadow: rgba(255, 255, 255, 0.1);
+}
+
+.main-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+  background: var(--bg-main);
+  color: var(--text-dark);
+  box-sizing: border-box;
+}
+
+/* ----------- HEADER ----------- */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.dark-toggle {
+  background: none;
+  border: none;
+  font-size: 1.9rem;
+  cursor: pointer;
+  color: var(--text-dark);
+  transition: 0.2s;
+}
+.dark-toggle:hover {
+  transform: scale(1.15);
+}
+
+/* ----------- PROBLEM BUTTONS ----------- */
+.problem-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.problem-buttons button {
+  padding: 10px 16px;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.problem-buttons button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* ----------- REMEDY BOX ----------- */
+.remedy-box {
+  background: var(--bg-light);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px var(--card-shadow);
+  margin-bottom: 20px;
+}
+
+.remedy-box h2 {
+  margin-top: 0;
+  font-size: 1.6rem;
+  color: var(--primary);
+}
+
+.remedy-content {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+
+/* ----------- LOADING SPINNER ----------- */
+.spinner-container {
+  text-align: center;
+}
+
+.loader {
+  width: 35px;
+  height: 35px;
+  border: 4px solid #ccc;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  margin: 0 auto 10px auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ----------- SEARCH BOX ----------- */
+.search-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.search-box input {
+  flex: 2;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #bbb;
+  font-size: 1rem;
+  outline: none;
+}
+.search-box input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 5px rgba(75, 141, 248, 0.5);
+}
+
+/* Search & Voice Buttons */
+.search-btn,
+.mic,
+.stop,
+.upload-btn,
+.webcam-btn {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: 0.25s;
+}
+
+/* Voice Button */
+.mic {
+  background: var(--accent);
+  color: #fff;
+}
+.mic.active {
+  background: var(--danger);
+  animation: pulse 1.4s infinite;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7);
+  }
+  100% {
+    box-shadow: 0 0 0 14px rgba(231, 76, 60, 0);
+  }
+}
+
+/* Search Button */
+.search-btn {
+  background: var(--primary);
+  color: #fff;
+}
+.search-btn:hover {
+  background: var(--primary-dark);
+}
+
+/* Stop Voice */
+.search-btn.stop {
+  background: var(--danger);
+}
+.search-btn.stop:hover {
+  background: var(--danger-dark);
+}
+
+/* Upload & Webcam Buttons */
+.upload-btn,
+.webcam-btn {
+  background: var(--accent);
+  color: #fff;
+}
+.upload-btn:hover,
+.webcam-btn:hover {
+  background: var(--accent-dark);
+}
+
+.upload-btn input {
+  display: none;
+}
+
+/* ----------- IMAGE PREVIEW ----------- */
+.image-preview {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.image-preview img {
+  width: 70%;
+  max-width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px var(--card-shadow);
+}
+
+/* ----------- WEBCAM AREA ----------- */
+.webcam-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.webcam-video {
+  width: 80%;
+  max-width: 350px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--card-shadow);
+}
+
+.webcam-controls {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.capture-btn {
+  padding: 10px 14px;
+  background: var(--primary);
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+.cancel-btn {
+  padding: 10px 14px;
+  background: var(--danger);
+  color: white;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+/* ----------- BOTTOM EXPORT BUTTONS ----------- */
+.bottom-controls {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+}
+
+.bottom-controls button {
+  flex: 1;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: none;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.bottom-controls button:hover {
+  background: var(--primary-dark);
+}
+
+/* ----------- RESPONSIVE DESIGN ----------- */
+@media (max-width: 768px) {
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .search-box {
+    flex-direction: column;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .problem-buttons {
+    justify-content: center;
+  }
+
+  .image-preview img,
+  .webcam-video {
+    width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 1.4rem;
+  }
+
+  .problem-buttons button {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+
+  .bottom-controls {
+    flex-direction: column;
+  }
+}

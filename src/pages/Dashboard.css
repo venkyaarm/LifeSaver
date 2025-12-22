@@ -1,0 +1,200 @@
+/* Import Inter font if you haven't already in your main index.css or equivalent */
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'); */
+
+body {
+  font-family: 'Inter', sans-serif; /* A modern, clean sans-serif font for a professional look */
+  line-height: 1.6; /* Improved readability for body text */
+  color: #333; /* Softer black for general text, less harsh than pure black */
+  background-color: #f8f9fa; /* A very light, subtle background color for the page */
+}
+
+/* Main content already gets spacing from SidebarLayout's <Toolbar /> */
+.dashboard-main {
+  flex: 1;
+  padding-left: 17rem; /* More generous overall padding for spaciousness */
+  padding-top: 0; /* Prevent double spacing if SidebarLayout has its own top padding */
+}
+
+/* Welcome Section */
+.welcome-section {
+  background: linear-gradient(145deg, #0056b3, #007bff); /* A deeper, richer blue gradient */
+  color: white;
+  padding: 4rem 2.5rem; /* Even more generous vertical and horizontal padding */
+  border-radius: 1.5rem; /* Consistent rounded corners */
+  margin-bottom: 3.5rem; /* More space before the info section for clear separation */
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2); /* Stronger, yet softer and more diffused shadow for prominence */
+  position: relative; /* For potential future additions like subtle patterns */
+  overflow: hidden; /* Ensures shadows/patterns don't bleed */
+}
+
+.welcome-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at top right, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
+  border-radius: 1.5rem;
+  pointer-events: none; /* Allows clicks to pass through */
+}
+
+
+.welcome-section h1 {
+  font-size: 3rem; /* Larger, more impactful heading for hero section */
+  font-weight: 700; /* Bolder for prominence */
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.04em; /* Slightly tighter letter-spacing for modern headings */
+  line-height: 1.2;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.3); /* More pronounced shadow for text against gradient */
+}
+
+.welcome-section h1 span {
+  color: #e0f2fe; /* A very light blue to stand out against the deeper gradient */
+  /* text-shadow inherited from parent h1 for consistency */
+}
+
+.welcome-section p {
+  font-size: 1.15rem; /* Larger, more readable text for the main message */
+  line-height: 1.8; /* Increased line spacing for optimal comfort */
+  color: rgba(255, 255, 255, 0.95); /* Nearly white for excellent contrast */
+  max-width: 850px; /* Limit line length for readability on wide screens */
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 400; /* Regular weight for easy reading */
+}
+
+/* Info Section */
+.info-section {
+  padding-top: 1rem; /* Add a bit of top padding to the section */
+}
+
+.info-section h2 {
+  font-size: 2.2rem; /* Slightly larger and more prominent secondary heading */
+  font-weight: 600;
+  color: #212529; /* A very dark grey, almost black, for strong contrast */
+  text-align: center;
+  margin-bottom: 3rem; /* More space before info boxes */
+  letter-spacing: -0.02em;
+}
+
+/* Info Section Grid */
+.info-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly wider min width for boxes */
+  gap: 3rem; /* Increased gap for more breathing room between cards */
+  justify-items: center;
+  align-items: stretch; /* Ensures boxes stretch to same height if content varies */
+}
+
+.info-box {
+  background: #ffffff; /* Pure white for clean contrast */
+  padding: 2.2rem; /* More generous padding inside each box */
+  border-radius: 1.5rem; /* More rounded corners for a softer feel */
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Stronger, yet soft and diffused shadow */
+  border: 1px solid rgba(230, 230, 230, 0.7); /* Very subtle light border for definition */
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), border-color 0.4s ease; /* Smoother, more engaging transitions */
+  position: relative; /* For potential future additions like icons or overlays */
+  display: flex; /* Use flexbox for vertical centering of content */
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to the top */
+  align-items: center;
+}
+
+.info-box:hover {
+  transform: translateY(-10px); /* More pronounced lift on hover */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25); /* More significant and encompassing shadow on hover */
+  border-color: #007bff; /* Highlight border with main brand color on hover */
+}
+
+.info-box h3 {
+  font-size: 1.4rem; /* Slightly larger heading for box titles */
+  font-weight: 600;
+  color: #1a1a1a; /* Darker text for titles */
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.info-box p {
+  font-size: 1.05rem; /* Consistent font size with welcome section paragraphs, but adapted */
+  line-height: 1.75; /* Slightly increased line height for legibility in boxes */
+  color: #4a4a4a; /* A medium-dark grey for readability */
+  flex-grow: 1; /* Allows paragraphs to take available space if align-items: stretch is used on parent */
+}
+
+/* ✅ Mobile View Adjustments */
+@media (max-width: 768px) {
+  .dashboard-main {
+    padding: 2rem; /* Adjust overall main padding */
+  }
+
+  .welcome-section {
+    padding: 3rem 1.5rem; /* Adjust padding for smaller screens */
+    border-radius: 1rem; /* Slightly less rounded on small screens */
+    margin-bottom: 2.5rem;
+  }
+
+  .welcome-section h1 {
+    font-size: 2.4rem; /* Scale down heading */
+  }
+
+  .welcome-section p {
+    font-size: 1rem; /* Scale down paragraph */
+  }
+
+  .info-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .info-boxes {
+    grid-template-columns: 1fr; /* Stack boxes vertically */
+    gap: 2rem; /* Adjust gap for stacked boxes */
+  }
+
+  .info-box {
+    max-width: 100%; /* Full width for stacked boxes */
+    padding: 1.8rem; /* Adjust padding for smaller boxes */
+    border-radius: 1rem;
+  }
+
+  .info-box h3 {
+    font-size: 1.3rem;
+  }
+
+  .info-box p {
+    font-size: 0.95rem;
+  }
+}
+
+/* ✅ Extra small screens (phones under 480px) */
+@media (max-width: 480px) 
+
+{
+  .dashboard-main {
+    padding: 0.1rem;
+  }
+
+  .welcome-section {
+    padding: 2rem 1rem;
+  }
+
+  .welcome-section h1 {
+    font-size: 2rem;
+  }
+
+  .welcome-section p {
+    font-size: 0.9rem;
+  }
+
+  .info-section h2 {
+    font-size: 1.6rem;
+  }
+
+  .info-box {
+    font-size: 0.9rem;
+    padding: 1.5rem;
+  }
+}

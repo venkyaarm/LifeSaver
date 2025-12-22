@@ -1,0 +1,139 @@
+/* Force full screen */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.register-container {
+  position: fixed;       /* Ignore parent layout */
+  top: 0;
+  left: 0;
+  width: 100vw;          /* Full width */
+  height: 100vh;         /* Full height */
+  display: flex;
+  justify-content: center; /* Horizontal center */
+  align-items: center;     /* Vertical center */
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  font-family: "Poppins", sans-serif;
+  padding: 1rem; /* prevent overflow on very small screens */
+  box-sizing: border-box;
+}
+
+/* Register box */
+.register-box {
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+  width: 380px;
+  max-width: 100%;   /* Prevent overflow on mobile */
+  text-align: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Title */
+.register-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* Input fields */
+.register-form input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  font-size: 0.95rem;
+  transition: 0.3s;
+  box-sizing: border-box;
+}
+
+.register-form input:focus {
+  border-color: #6a11cb;
+  box-shadow: 0px 0px 5px rgba(106, 17, 203, 0.4);
+}
+
+/* Button */
+.register-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 4px 15px rgba(37, 117, 252, 0.4);
+}
+
+/* Footer */
+.register-footer {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.login-link {
+  color: #2575fc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ✅ Responsive Design */
+
+/* Tablets (≤ 992px) */
+@media (max-width: 992px) {
+  .register-box {
+    width: 320px;
+    padding: 2rem;
+  }
+  .register-title {
+    font-size: 1.6rem;
+  }
+}
+
+/* Mobile (≤ 600px) */
+@media (max-width: 600px) {
+  .register-box {
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+  .register-title {
+    font-size: 1.4rem;
+  }
+  .register-btn {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+  .register-footer {
+    font-size: 0.8rem;
+  }
+}

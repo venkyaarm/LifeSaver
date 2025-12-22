@@ -1,0 +1,64 @@
+/* Global Layout */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", Arial, sans-serif;
+  background: linear-gradient(135deg, #6fe7dd, #b88eed);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: #333;
+}
+
+/* Auth Container */
+.auth-container {
+  width: 340px;
+  padding: 28px;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.6s ease;
+}
+
+/* Inputs */
+.auth-container input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.25s ease;
+  font-size: 15px;
+}
+
+.auth-container input:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 6px rgba(25, 118, 210, 0.4);
+}
+
+/* Buttons */
+.auth-container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 12px;
+  background: #1976d2;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 8px;
+  transition: 0.25s ease;
+}
+
+.auth-container button:hover {
+  background: #125a9e;
+  transform: translateY(-2px);
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

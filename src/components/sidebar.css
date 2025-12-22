@@ -1,0 +1,92 @@
+/* ================================
+   ROOT WRAPPER (NO LEAKING)
+================================ */
+.sidebarWrapper {
+  all: unset;
+  display: block;
+}
+
+/* ================================
+   DRAWER – ALWAYS WHITE
+================================ */
+.drawer .MuiDrawer-paper {
+  background-color: #ffffff !important;
+  color: #222 !important;
+  border: none !important;
+  overflow-y: auto !important;
+}
+
+/* Prevent background bleed while scrolling */
+.drawer {
+  background-color: #ffffff !important;
+}
+
+/* ================================
+   MENU ITEMS
+================================ */
+.menuItem {
+  border-radius: 8px;
+}
+
+.menuItem.Mui-selected {
+  background: rgba(0, 0, 0, 0.08) !important;
+  border-left: 4px solid #4e54c8 !important;
+}
+
+.menuItem:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+/* ================================
+   TEXT
+================================ */
+.text .MuiTypography-root {
+  color: #222 !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+}
+
+/* ================================
+   ICONS
+================================ */
+.icon svg {
+  color: #222 !important;
+}
+
+/* ================================
+   TOOLTIP
+================================ */
+.MuiTooltip-tooltip {
+  background-color: #333 !important;
+  color: #fff !important;
+  font-size: 14px !important;
+}
+
+/* ================================
+   BODY / HTML – STOP BLACK FLASH
+================================ */
+html,
+body {
+  background-color: #ffffff !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* ================================
+   MOBILE FIX
+================================ */
+@media (max-width: 480px) {
+  .drawer .MuiDrawer-paper {
+    background-color: #ffffff !important;
+    color: #222 !important;
+    padding: 0 !important;
+  }
+
+  .icon svg {
+    color: #222 !important;
+  }
+
+  .text .MuiTypography-root {
+    color: #222 !important;
+  }
+}

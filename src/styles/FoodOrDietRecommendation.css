@@ -1,0 +1,437 @@
+/* ======================================================
+   PERFECTED UI â€” CLEAN, RESPONSIVE, ALIGNED
+   For Food & Diet Recommendation Page
+   ====================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #0077b6;
+  --primary-hover: #005f8a;
+
+  --secondary: #00b4d8;
+  --secondary-hover: #009ac2;
+
+  --bg-light: #f5f7fa;
+  --bg-panel: #ffffff;
+
+  --text-dark: #1e1e1e;
+  --text-light: #5f6c75;
+
+  --border: #d6d6d6;
+  --shadow: rgba(0, 0, 0, 0.10);
+
+  --success: #4caf50;
+  --danger: #e63946;
+}
+
+/* GLOBAL */
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #e3edf7, #ffffff);
+  font-family: "Inter", sans-serif;
+  color: var(--text-dark);
+}
+
+.diet-main-container {
+  width: 100%;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.diet-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 35px;
+}
+
+/* ======================================================
+   MAIN 2â€“COLUMN LAYOUT (FIXED ALIGNMENT)
+   ====================================================== */
+.diet-layout {
+  display: flex;
+  gap: 360px;
+  justify-content: center;
+  align-items: flex-start;   /* ðŸ”¥ ensures both panels align at top */
+  flex-wrap: wrap;
+  padding-left: 250px;
+}
+
+/* LEFT PANEL */
+.diet-left {
+  flex: 1;
+  width: 100%;
+  background: var(--bg-panel);
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 6px 22px var(--shadow);
+}
+
+/* FORM SECTION */
+.form-card h2 {
+  font-size: 1.45rem;
+  margin-bottom: 0px;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.form-grid input,
+.form-grid select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-size: 1rem;
+  background: #fff;
+  outline: none;
+  transition: 0.25s ease;
+}
+
+.form-grid input:focus,
+.form-grid select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 5px rgba(0, 119, 182, 0.3);
+}
+
+/* BUTTON ROW */
+.button-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.primary-btn,
+.secondary-btn {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  transition: 0.25s;
+}
+
+.primary-btn { background: var(--primary); }
+.primary-btn:hover { background: var(--primary-hover); }
+
+.secondary-btn { background: var(--secondary); }
+.secondary-btn:hover { background: var(--secondary-hover); }
+
+/* DAILY TIP */
+.tip-box {
+  margin-top: 18px;
+  padding: 14px;
+  background: #e3f7ff;
+  border-left: 5px solid var(--secondary);
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #05516b;
+}
+
+/* WATER TRACKER */
+.water-card {
+  margin-top: 22px;
+  padding: 18px;
+  background: #f1faff;
+  border-radius: 14px;
+  box-shadow: 0 2px 10px var(--shadow);
+}
+
+.water-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.18rem;
+  color: var(--primary);
+}
+
+.water-card h3 small {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.water-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.water-buttons button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: var(--secondary);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.water-buttons button:hover {
+  background: var(--secondary-hover);
+}
+
+/* SEARCH FIELD */
+.search-bar {
+  margin-top: 22px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  background: #fff;
+  transition: 0.25s;
+}
+
+.search-bar input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 6px rgba(0, 119, 182, 0.25);
+}
+
+/* ======================================================
+   RIGHT PANEL (FIXED ALIGNMENT + SPACING)
+   ====================================================== */
+.diet-right {
+  flex: 2;
+  min-width: 750px;
+  max-width: 750px;
+  background: var(--bg-panel);
+  padding: 10px;
+  border-radius: 18px;
+  box-shadow: 0 6px 22px var(--shadow);
+  align-self: flex-start;       /* ðŸ”¥ keeps it aligned with left panel */
+}
+
+/* TABS */
+.tabs {
+  display: flex;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--text-light);
+  transition: 0.25s;
+}
+
+.tabs button.active {
+  color: var(--primary);
+  border-bottom: 3px solid var(--primary);
+}
+
+/* CONTENT AREA */
+.tab-content {
+  max-height: 530px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.pane {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* EXPORT BUTTON */
+.export-btn {
+  align-self: flex-end;
+  padding: 8px 14px;
+  border-radius: 8px;
+  background: var(--success);
+  color: white;
+  border: none;
+  font-weight: 600;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.export-btn:hover {
+  background: #3da043;
+}
+
+/* FOOD / FAVORITE CARDS */
+.diet-card {
+  background: var(--bg-light);
+  padding: 14px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px var(--shadow);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.diet-card p {
+  margin: 0;
+  width: 75%;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.fav-btn,
+.remove-btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  transition: 0.2s;
+}
+
+.fav-btn { background: var(--primary); }
+.fav-btn:hover { background: var(--primary-hover); }
+
+.remove-btn { background: var(--danger); }
+.remove-btn:hover { background: #c63039; }
+
+/* NUTRITION SUMMARY */
+.nutrition-box {
+  padding: 16px;
+  background: #f7fbff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  white-space: pre-wrap;
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+/* EMPTY STATE */
+.empty-msg {
+  padding: 20px;
+  text-align: center;
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+/* ======================================================
+   RESPONSIVE FIXES
+   ====================================================== */
+
+@media (max-width: 1100px) {
+  .diet-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .diet-right {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .diet-left,
+  .diet-right {
+    max-width: 100%;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .diet-card p {
+    width: 65%;
+  }
+}
+/* ======================================================
+   EXTRA MOBILE ALIGNMENT — 480px & BELOW
+   (ADD ONLY — NO EXISTING CODE TOUCHED)
+   ====================================================== */
+
+@media (max-width: 480px) {
+
+  body {
+    background: #ffffff;
+  }
+
+  .diet-main-container {
+    padding: 20px 12px;
+  }
+
+  .diet-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+  }
+
+  .diet-layout {
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 0;     /* 🔥 removes desktop offset */
+    align-items: stretch;
+  }
+
+  .diet-left,
+  .diet-right {
+    width: 100%;
+    min-width: unset;
+    max-width: 100%;
+    padding: 12px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .button-row {
+    flex-direction: column;
+  }
+
+  .water-buttons {
+    flex-direction: column;
+  }
+
+  .tabs {
+    flex-direction: column;
+  }
+
+  .tabs button {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+
+  .tab-content {
+    max-height: none;
+  }
+
+  .diet-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .diet-card p {
+    width: 100%;
+  }
+
+  .fav-btn,
+  .remove-btn {
+    width: 100%;
+  }
+
+  .export-btn {
+    align-self: stretch;
+    width: 100%;
+  }
+}

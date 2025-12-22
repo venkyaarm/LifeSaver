@@ -1,0 +1,153 @@
+/* Reset */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Full screen gradient background */
+.login-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #4f93ff, #6c63ff);
+}
+
+/* Login card */
+.login-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.15);
+  width: 360px;
+  max-width: 90%;
+  animation: fadeIn 0.5s ease-in-out;
+  text-align: center;
+}
+
+/* Title and subtitle */
+.login-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.login-subtitle {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 25px;
+}
+
+/* Form styles */
+.form-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: #555;
+}
+
+.form-group input {
+  width: 95%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+  border-color: #4f93ff;
+  box-shadow: 0px 0px 6px rgba(79, 147, 255, 0.5);
+}
+
+/* Login button */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #4f93ff, #6c63ff);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background: linear-gradient(90deg, #3a7be0, #5748e4);
+  transform: scale(1.02);
+}
+
+/* Register link */
+.register-text {
+  font-size: 14px;
+  color: #555;
+  margin-top: 15px;
+}
+
+.register-link {
+  color: #4f93ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ðŸ“± Mobile (up to 480px) */
+@media (max-width: 480px) {
+  .login-card {
+    padding: 25px 20px;
+    width: 90%;
+  }
+
+  .login-title {
+    font-size: 20px;
+  }
+
+  .form-group input {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .login-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* ðŸ’» Large screens (over 1200px) */
+@media (min-width: 1200px) {
+  .login-card {
+    width: 420px;
+    padding: 50px;
+  }
+
+  .login-title {
+    font-size: 28px;
+  }
+
+  .login-btn {
+    font-size: 18px;
+    padding: 14px;
+  }
+}

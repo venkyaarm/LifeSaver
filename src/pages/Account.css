@@ -1,0 +1,509 @@
+/*
+|--------------------------------------------------------------------------
+| Account.css - Enhanced Professional UI with Visibility & Alignment Fix
+|--------------------------------------------------------------------------
+| A sleek, modern design with an emphasis on clarity, professionalism,
+| and a calming hospital aesthetic. Fixed z-index to ensure content visibility
+| and improved alignment for long photo links.
+*/
+
+/* --- Global Variables for Theming --- */
+:root {
+  --color-primary-blue: #0077b6; /* Deep Ocean Blue - Main accent */
+  --color-primary-blue-dark: #005f8a; /* Darker for hover */
+  --color-primary-blue-light: #e0f2f7; /* Very light blue for subtle backgrounds */
+
+  --color-accent-green: #28a745; /* Clean Medical Green - For positive actions */
+  --color-accent-green-dark: #1e7e34;
+
+  --color-accent-orange: #ffb347; /* Soft Orange - For print button, warmer accent */
+  --color-accent-orange-dark: #e69d00;
+
+  --color-danger-red: #dc3545; /* Standard Red - For logout/destructive actions */
+  --color-danger-red-dark: #c82333;
+
+  --color-text-dark: #2c3e50; /* Deep charcoal for main text */
+  --color-text-medium: #34495e; /* Slightly lighter gray for labels, secondary text */
+  --color-text-light: #7f8c8d; /* Muted gray for placeholders, hints */
+
+  --color-bg-body: #eaf6fa; /* Overall soft background */
+  --color-bg-card: #ffffff; /* Pure white card background */
+  --color-bg-section: #f8fcfd; /* Subtle off-white for internal sections */
+
+  --border-light: #d1d8e0; /* Clean, light border */
+
+  --shadow-sm: 0 4px 10px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.2); /* More pronounced, elegant shadow */
+
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 1rem;      /* 16px */
+  --radius-xl: 1.5rem;    /* 24px */
+
+  --spacing-xs: 0.5rem;   /* 8px */
+  --spacing-sm: 0.75rem;  /* 12px */
+  --spacing-md: 1rem;     /* 16px */
+  --spacing-lg: 1.5rem;   /* 24px */
+  --spacing-xl: 2rem;     /* 32px */
+  --spacing-xxl: 3rem;    /* 48px */
+
+  --transition-ease: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --- Base Styles for Body & HTML --- */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif; /* Poppins for titles, Inter for body */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, var(--color-bg-body) 0%, #f9fbfd 100%);
+  color: var(--color-text-dark);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to top to avoid cutting off content on scroll */
+  padding-top: var(--spacing-xl); /* Top padding for the whole page */
+  padding-bottom: var(--spacing-xl);
+  min-height: 100vh;
+}
+
+/* --- Account Container & Card --- */
+.account-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 250px; /* Overall padding for small screens */
+  box-sizing: border-box;
+}
+
+.account-card {
+  width: 100%;
+  max-width: 950px; /* Increased max-width for more content space */
+  padding: var(--spacing-xxl); /* Generous padding inside the card */
+  border-radius: var(--radius-xl); /* More rounded corners */
+  background: var(--color-bg-card); /* Pure white background */
+  box-shadow: var(--shadow-lg); /* Prominent, elegant shadow */
+  color: var(--color-text-dark);
+  font-weight: 700;
+  animation: fadeInSlideUp 0.8s ease-out forwards;
+  transition: var(--transition-ease);
+  border: 1px solid rgba(0,0,0,0.05); /* Subtle border */
+  position: relative; /* Essential for z-index of children */
+  overflow: hidden; /* Ensure rounded corners clip content that is *within* the card, not hiding it */
+}
+
+/* Glass effect background for the card */
+.account-card.glass-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.05) 100%);
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(8px); /* For Safari */
+    z-index: 0; /* This should be behind the content */
+    border-radius: inherit; /* Inherit border-radius from parent */
+}
+
+.account-card:hover {
+  transform: translateY(-8px); /* More pronounced lift on hover */
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25); /* Even deeper shadow on hover */
+}
+
+/* --- Title Styling --- */
+.account-title {
+  text-align: center;
+  margin-bottom: var(--spacing-xxl); /* More space below the title */
+  font-size: 2.5rem; /* Larger, more impactful title */
+  font-weight: 900; /* Extra bold */
+  color: var(--color-primary-blue-dark);
+  letter-spacing: -0.05em; /* Tighter letter spacing for modern feel */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.02);
+  position: relative; /* Ensure it's part of the stacking context */
+  z-index: 2; /* Ensure title is above glass effect */
+  padding-bottom: var(--spacing-sm);
+}
+.account-title::after {
+    content: '';
+    display: block;
+    width: 80px; /* A short, strong underline */
+    height: 4px;
+    background: var(--color-primary-blue);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* --- Two-column layout for content --- */
+.account-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Details column wider than QR */
+  gap: var(--spacing-xl); /* Generous gap between columns */
+  align-items: start; /* Align content to the top of grid cells */
+  position: relative; /* Essential for z-index */
+  z-index: 2; /* Ensure main content is above glass effect */
+}
+
+/* --- Details Section --- */
+.details-section, .qr-section {
+  padding: var(--spacing-lg);
+  background: var(--color-bg-section); /* Subtle off-white background for sections */
+  border-radius: var(--radius-lg);
+  color: var(--color-text-dark);
+  font-weight: 600;
+  box-shadow: var(--shadow-sm); /* Subtle shadow for inner sections */
+  transition: var(--transition-ease);
+  border: 1px solid var(--border-light);
+  position: relative; /* Ensure these sections are part of stacking context */
+  z-index: 2; /* Ensure sections are above glass effect */
+}
+
+.details-section:hover, .qr-section:hover {
+    box-shadow: var(--shadow-md); /* Stronger shadow on hover for inner sections */
+    transform: translateY(-3px); /* Slight lift */
+}
+
+.details-section h3, .qr-section h3 {
+  margin-bottom: var(--spacing-lg);
+  font-size: 1.5rem; /* Larger sub-headings */
+  font-weight: 800;
+  color: var(--color-primary-blue);
+  position: relative;
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 2px solid var(--color-primary-blue-light); /* Underline for sub-headings */
+}
+
+.details-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid; /* Use grid for list items for better alignment */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 2 columns on wider screens */
+  gap: var(--spacing-md); /* Gap between list items */
+}
+
+.details-section li {
+  margin-bottom: 0; /* Reset default margin */
+  font-size: 1rem;
+  color: var(--color-text-medium);
+  font-weight: 500;
+  background-color: var(--color-bg-card); /* White background for list items */
+  padding: var(--spacing-md);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  display: flex;
+  flex-direction: column; /* Changed to column to stack key and value */
+  align-items: flex-start; /* Align text to the start within the column */
+  gap: 0.2rem; /* Small gap between key and value */
+  transition: var(--transition-ease);
+  /* Added for breaking long text/links */
+  word-break: break-word; /* Breaks words if they are too long to fit */
+  overflow-wrap: break-word; /* Ensures long strings break */
+}
+.details-section li:hover {
+    background-color: #f0f8ff; /* Light blue on hover */
+    border-color: var(--color-primary-blue);
+}
+
+.details-section li strong {
+  color: var(--color-primary-blue-dark);
+  font-weight: 700;
+  margin-right: 0; /* Remove right margin as it's now stacked */
+}
+
+.details-section p a {
+  color: var(--color-primary-blue);
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition-ease);
+}
+.details-section p a:hover {
+    color: var(--color-primary-blue-dark);
+    text-decoration: underline;
+}
+
+/* --- QR Code Section --- */
+.qr-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center QR code and buttons */
+}
+
+.qr-section h3 {
+    width: 100%; /* Ensure heading spans full width for centering */
+    text-align: center;
+}
+
+.qr-code-canvas-wrapper { /* New wrapper for QR code for better control */
+    padding: var(--spacing-md);
+    background-color: var(--color-bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: var(--spacing-lg); /* Space below QR code */
+    border: 1px solid var(--border-light);
+    transition: var(--transition-ease);
+    position: relative; /* Ensure it's part of stacking context */
+    z-index: 2; /* Ensure QR code is above glass effect */
+}
+.qr-code-canvas-wrapper:hover {
+    box-shadow: var(--shadow-lg); /* More prominent shadow on hover */
+    transform: scale(1.02); /* Slight scale up */
+}
+
+
+.qr-code-canvas-wrapper canvas {
+  display: block;
+  width: 200px !important; /* Force exact size */
+  height: 200px !important; /* Force exact size */
+  image-rendering: pixelated; /* Ensure sharp edges for QR */
+}
+
+/* --- Buttons --- */
+.account-buttons, .download-buttons {
+  margin-top: var(--spacing-xl); /* More space above button groups */
+  display: flex;
+  gap: var(--spacing-md); /* Increased gap between buttons */
+  flex-wrap: wrap;
+  justify-content: center; /* Center buttons in their section */
+  width: 100%; /* Ensure button group takes full width */
+  position: relative; /* Ensure buttons are part of stacking context */
+  z-index: 2; /* Ensure buttons are above glass effect */
+}
+
+.btn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: var(--radius-md); /* Consistent button radius */
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem; /* Consistent font size */
+  transition: var(--transition-ease);
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  min-width: 140px; /* Ensure buttons have a decent minimum size */
+  flex-grow: 1; /* Allows buttons to expand nicely */
+  max-width: 48%; /* For two buttons per row on larger screens */
+}
+
+.btn:hover {
+  transform: translateY(-4px); /* More pronounced lift */
+  box-shadow: var(--shadow-hover); /* Stronger shadow on hover */
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn.primary {
+  background: var(--color-primary-blue);
+  color: white;
+}
+
+.btn.primary:hover {
+  background: var(--color-primary-blue-dark);
+}
+
+.btn.secondary { /* Using secondary for download QR PDF */
+  background: var(--color-accent-green);
+  color: white;
+}
+.btn.secondary:hover {
+    background: var(--color-accent-green-dark);
+}
+
+.btn.danger {
+  background: var(--color-danger-red);
+  color: white;
+}
+
+.btn.danger:hover {
+  background: var(--color-danger-red-dark);
+}
+
+.btn.print {
+  background: var(--color-accent-orange);
+  color: var(--color-text-dark); /* Dark text on orange */
+}
+.btn.print:hover {
+    background: var(--color-accent-orange-dark);
+}
+
+/* --- Loading State --- */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* Takes most of the viewport height */
+  color: var(--color-text-dark);
+  font-size: 1.2rem;
+}
+
+.spinner {
+  border: 5px solid var(--border-light);
+  border-top: 5px solid var(--color-primary-blue);
+  width: 60px; /* Larger spinner */
+  height: 60px;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* --- No Details Found State --- */
+.no-details {
+    text-align: center;
+    padding: var(--spacing-xxl);
+    background: var(--color-bg-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    max-width: 600px;
+    margin: var(--spacing-xl) auto;
+    color: var(--color-text-medium);
+    position: relative; /* Ensure this is also part of stacking context */
+    z-index: 2; /* Ensure no details message is above glass effect */
+}
+.no-details h2 {
+    font-size: 1.8rem;
+    color: var(--color-primary-blue-dark);
+    margin-bottom: var(--spacing-md);
+}
+.no-details p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+
+/* --- Animations --- */
+@keyframes fadeInSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 992px) { /* Tablets and smaller desktops */
+  .account-card {
+    padding: var(--spacing-xl);
+    border-radius: var(--radius-lg);
+  }
+  .account-title {
+    font-size: 2.2rem;
+    margin-bottom: var(--spacing-xl);
+  }
+  .account-content {
+    grid-template-columns: 1fr; /* Stack columns vertically */
+    gap: var(--spacing-lg);
+  }
+  .details-section, .qr-section {
+    min-width: auto; /* Reset min-width */
+  }
+  .details-section h3, .qr-section h3 {
+    font-size: 1.4rem;
+  }
+  .details-section ul {
+      grid-template-columns: 1fr; /* Stack list items on smaller screens */
+  }
+}
+
+@media (max-width: 768px) { /* Larger mobile devices */
+  body {
+    padding-top: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+  }
+  .account-card {
+    padding: var(--spacing-lg);
+  }
+  .account-title {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-lg);
+  }
+  .details-section, .qr-section {
+    padding: var(--spacing-md);
+  }
+  .details-section h3, .qr-section h3 {
+    font-size: 1.2rem;
+  }
+  .details-section li {
+      font-size: 0.95rem;
+      padding: var(--spacing-sm);
+  }
+  .btn {
+    padding: var(--spacing-sm);
+    font-size: 0.9rem;
+    min-width: unset;
+    flex-grow: 1;
+    max-width: 100%; /* Allow buttons to take full width */
+  }
+  .account-buttons, .download-buttons {
+      flex-direction: column; /* Stack buttons vertically */
+      gap: var(--spacing-sm);
+  }
+  .qr-code-canvas-wrapper {
+      width: 180px;
+      height: 180px;
+      padding: var(--spacing-sm);
+  }
+  .qr-code-canvas-wrapper canvas {
+      width: 150px !important;
+      height: 150px !important;
+  }
+}
+
+@media (max-width: 480px) { /* Smaller mobile devices */
+.account-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 0px; /* Overall padding for small screens */
+  box-sizing: border-box;
+}
+  .account-card {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+  }
+  .account-title {
+    font-size: 1.6rem;
+    margin-bottom: var(--spacing-md);
+  }
+  .details-section li strong {
+      display: block; /* Stack key and value on very small screens */
+      margin-right: 0;
+      margin-bottom: 0.2rem;
+  }
+  .qr-link {
+      font-size: 0.85rem;
+      text-align: center;
+      flex-direction: column; /* Stack link elements */
+  }
+  .qr-link a {
+      margin-top: 0.2rem;
+  }
+  .no-details {
+      padding: var(--spacing-lg);
+  }
+  .no-details h2 {
+      font-size: 1.5rem;
+  }
+  .no-details p {
+      font-size: 0.95rem;
+  }
+}

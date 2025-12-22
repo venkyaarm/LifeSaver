@@ -1,0 +1,297 @@
+/* ================================================================
+   TABLET & TONIC ANALYSIS — FULL PROFESSIONAL CSS (Perplexity Version)
+   Clean UI • Mobile-Friendly • Webcam Support • Voice Button Pulse
+================================================================ */
+
+/* 🌈 Theme Variables */
+:root {
+  --primary-color: #3498db;
+  --primary-hover: #2d82c4;
+
+  --secondary-color: #2ecc71;
+  --secondary-hover: #27ae60;
+
+  --accent-color: #9b59b6;
+  --accent-hover: #8e44ad;
+
+  --danger-color: #e74c3c;
+  --light-bg: #f7f9fc;
+
+  --text-color: #2c3e50;
+  --border-color: #dcdcdc;
+
+  --chat-user-bg: #e3f2fd;
+  --chat-bot-bg: #f0f0f0;
+
+  --shadow: rgba(0, 0, 0, 0.12);
+}
+
+/* 💬 App Container */
+.analysis-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 25px;
+  background: linear-gradient(135deg, #74ebd5, #9face6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* 📦 Main Box */
+.analysis-box {
+  width: 100%;
+  max-width: 760px;
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 12px 30px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* 🏷️ Title */
+.analysis-box h1 {
+  font-size: 2.1em;
+  color: var(--primary-color);
+  text-align: center;
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* =====================
+      CHAT AREA
+===================== */
+.chat-box {
+  width: 100%;
+  height: 350px;
+  overflow-y: auto;
+  background: var(--light-bg);
+  border-radius: 12px;
+  padding: 15px;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Scrollbar */
+.chat-box::-webkit-scrollbar {
+  width: 6px;
+}
+.chat-box::-webkit-scrollbar-thumb {
+  background: #bbb;
+  border-radius: 5px;
+}
+
+/* Chat bubble (shared styles) */
+.chat-message {
+  padding: 12px 16px;
+  border-radius: 18px;
+  max-width: 80%;
+  font-size: 0.95em;
+  line-height: 1.5;
+  box-shadow: 0 3px 8px var(--shadow);
+}
+
+/* User bubble */
+.chat-message.user {
+  align-self: flex-end;
+  background: var(--chat-user-bg);
+  border-bottom-right-radius: 5px;
+}
+
+/* Bot bubble */
+.chat-message.bot {
+  align-self: flex-start;
+  background: var(--chat-bot-bg);
+  border-bottom-left-radius: 5px;
+}
+
+/* HTML text inside bot */
+.chat-message.bot h3 {
+  font-size: 1.15em;
+  color: var(--primary-color);
+  text-decoration: underline;
+  margin: 6px 0;
+}
+
+.chat-message.bot strong {
+  font-size: 1.05em;
+  color: var(--accent-color);
+}
+
+/* Loading animation */
+.loading {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  color: var(--accent-color);
+  font-style: italic;
+}
+.spinner {
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* =====================
+     ERROR MESSAGE
+===================== */
+.error-message {
+  background: #fbecec;
+  border: 1px solid var(--danger-color);
+  color: var(--danger-color);
+  padding: 10px 15px;
+  border-radius: 8px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* =====================
+     TEXTAREA INPUT
+===================== */
+textarea {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  font-size: 1em;
+  resize: vertical;
+  min-height: 70px;
+  box-sizing: border-box;
+  background: var(--light-bg);
+  color: var(--text-color);
+  transition: 0.2s ease;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.25);
+}
+
+/* =====================
+     BUTTON GROUP
+===================== */
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.button-group button {
+  flex: 1;
+  min-width: 140px;
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-size: 1em;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.25s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+/* Button styles */
+.primary-btn {
+  background: var(--primary-color);
+  color: white;
+}
+.primary-btn:hover {
+  background: var(--primary-hover);
+}
+
+.secondary-btn {
+  background: var(--secondary-color);
+  color: white;
+}
+.secondary-btn:hover {
+  background: var(--secondary-hover);
+}
+
+.accent-btn {
+  background: var(--accent-color);
+  color: white;
+}
+.accent-btn:hover {
+  background: var(--accent-hover);
+}
+
+.clear-btn {
+  background: var(--danger-color);
+  color: white;
+}
+.clear-btn:hover {
+  opacity: 0.85;
+}
+
+/* Voice listening pulse */
+.mic-listening {
+  animation: pulse 1.4s infinite;
+  background: var(--danger-color) !important;
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.6); }
+  70%  { box-shadow: 0 0 0 12px rgba(231, 76, 60, 0); }
+  100% { box-shadow: 0 0 0 0rgba(231, 76, 60, 0); }
+}
+
+/* =====================
+     CAMERA VIEW
+===================== */
+.camera-container {
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.camera-buttons {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* =====================
+     RESPONSIVE DESIGN
+===================== */
+
+/* Tablet */
+@media (max-width: 768px) {
+  .analysis-box {
+    padding: 20px;
+  }
+  .button-group button {
+    min-width: unset;
+    width: 100%;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .analysis-box {
+    padding: 15px;
+  }
+  .analysis-box h1 {
+    font-size: 1.6em;
+  }
+  .chat-box {
+    height: 260px;
+  }
+  textarea {
+    font-size: 0.9em;
+  }
+  .button-group {
+    gap: 8px;
+  }
+}
